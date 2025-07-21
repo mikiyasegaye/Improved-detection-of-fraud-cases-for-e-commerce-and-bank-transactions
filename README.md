@@ -64,3 +64,23 @@ This project focuses on improving fraud detection for e-commerce transactions an
 - F1-Score
 - Confusion Matrix
 - Model explainability analysis
+
+## Progress
+
+### 1. Initial Data Exploration (`01_initial_data_exploration.ipynb`)
+
+- Loaded and inspected all raw datasets: e-commerce transactions, IP-to-country mapping, and bank credit card transactions.
+- Checked for missing values and duplicates, and performed initial data cleaning.
+- Converted relevant columns to appropriate data types (e.g., datetime for timestamps).
+- Performed univariate and bivariate exploratory data analysis (EDA), including class distribution, feature distributions, and basic correlations.
+- Saved cleaned versions of all datasets to `data/processed/` for downstream tasks.
+
+### 2. Geolocation Merging & Feature Engineering (`02_geolocation_merging_and_feature_engineering.ipynb`)
+
+- Merged e-commerce transaction data with IP-to-country mapping using numeric IP ranges.
+- Filtered out transactions with IPs outside the available mapping range to ensure valid geolocation assignment.
+- Engineered new features: time since signup, hour of day, day of week, transaction frequency, device/IP usage patterns, and country-based features.
+- Encoded categorical variables for modeling.
+- Saved the fully feature-engineered dataset to `data/processed/fraud_data_with_features.csv`.
+
+These steps complete Task 1: Data Analysis and Preprocessing, and prepare the data for model building and evaluation.
