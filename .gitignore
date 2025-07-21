@@ -206,5 +206,10 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Ignore all data files and folders
-/data/
+# Ignore all files in data/ and all subfolders, but keep the folders and .gitkeep files
+
+data/**/*
+!data/**/.gitkeep
+
+models/*
+!models/.gitkeep
