@@ -67,7 +67,7 @@ This project focuses on improving fraud detection for e-commerce transactions an
 
 ## Progress
 
-### 1. Initial Data Exploration (`01_initial_data_exploration.ipynb`)
+### 1. Initial Data Exploration (`01_data_analysis/01_initial_data_exploration.ipynb`)
 
 - Loaded and inspected all raw datasets: e-commerce transactions, IP-to-country mapping, and bank credit card transactions.
 - Checked for missing values and duplicates, and performed initial data cleaning.
@@ -75,7 +75,7 @@ This project focuses on improving fraud detection for e-commerce transactions an
 - Performed univariate and bivariate exploratory data analysis (EDA), including class distribution, feature distributions, and basic correlations.
 - Saved cleaned versions of all datasets to `data/processed/` for downstream tasks.
 
-### 2. Geolocation Merging & Feature Engineering (`02_geolocation_merging_and_feature_engineering.ipynb`)
+### 2. Geolocation Merging & Feature Engineering (`02_feature_engineering/01_geolocation_merging_and_feature_engineering.ipynb`)
 
 - Merged e-commerce transaction data with IP-to-country mapping using numeric IP ranges.
 - Filtered out transactions with IPs outside the available mapping range to ensure valid geolocation assignment.
