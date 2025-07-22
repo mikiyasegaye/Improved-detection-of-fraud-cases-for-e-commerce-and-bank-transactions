@@ -21,22 +21,29 @@ This project focuses on improving fraud detection for e-commerce transactions an
 ```
 ├── data/
 │   ├── raw/                 # Original datasets
-│   ├── processed/           # Cleaned and processed data
-│   └── interim/            # Intermediate data files
+│   │   ├── Fraud_Data.csv
+│   │   ├── IpAddress_to_Country.csv
+│   │   └── creditcard.csv
+│   └── processed/           # Cleaned and processed data
+│       ├── Fraud_Data_clean.csv
+│       ├── IpAddress_to_Country_clean.csv
+│       ├── creditcard_clean.csv
+│       └── fraud_data_with_features.csv
 ├── notebooks/
-│   ├── 01_data_analysis/   # EDA and data exploration
-│   ├── 02_feature_engineering/  # Feature creation and engineering
-│   ├── 03_modeling/        # Model development and training
-│   └── 04_evaluation/      # Model evaluation and comparison
-├── src/
-│   ├── data/               # Data processing scripts
-│   ├── features/           # Feature engineering scripts
-│   ├── models/             # Model training and prediction scripts
-│   └── visualization/      # Plotting and visualization utilities
-├── models/                 # Trained model files
-├── reports/               # Generated reports and visualizations
-├── config/                # Configuration files
-└── requirements.txt        # Python dependencies
+│   ├── 01_data_analysis/
+│   │   └── 01_initial_data_exploration.ipynb
+│   ├── 02_feature_engineering/
+│   │   └── 01_geolocation_merging_and_feature_engineering.ipynb
+│   ├── 03_modeling/
+│   │   └── 01_model_building_and_training.ipynb
+│   └── 04_evaluation/       # For future evaluation notebooks
+├── src/                     # (Optional) Python scripts for data, features, models, visualization
+├── models/                  # Trained model files
+│   ├── best_fraud_model.pkl
+│   └── best_credit_model.pkl
+├── reports/                 # Generated reports and visualizations
+├── config/                  # Configuration files
+└── requirements.txt         # Python dependencies
 ```
 
 ## Datasets
@@ -83,4 +90,49 @@ This project focuses on improving fraud detection for e-commerce transactions an
 - Encoded categorical variables for modeling.
 - Saved the fully feature-engineered dataset to `data/processed/fraud_data_with_features.csv`.
 
-These steps complete Task 1: Data Analysis and Preprocessing, and prepare the data for model building and evaluation.
+### 3. Model Building and Training (`03_modeling/01_model_building_and_training.ipynb`)
+
+- Prepared data for modeling, including feature selection and train-test split for both e-commerce and credit card datasets.
+- Handled class imbalance in the training data using SMOTE (oversampling).
+- Built and compared two models: Logistic Regression (baseline) and Random Forest (ensemble).
+- Trained and evaluated both models using AUC-PR, F1-Score, and Confusion Matrix metrics.
+- Compared model performance and selected Random Forest as the best model for both datasets, based on higher F1-Score and AUC-PR.
+- Saved the best models for further explainability analysis.
+
+## How to Run the Project
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repo-url>
+   cd <repo-directory>
+   ```
+2. **Set up a virtual environment (recommended):**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Start Jupyter Notebook:**
+   ```bash
+   jupyter notebook
+   ```
+5. **Run the notebooks in order:**
+   - `notebooks/01_data_analysis/01_initial_data_exploration.ipynb`
+   - `notebooks/02_feature_engineering/01_geolocation_merging_and_feature_engineering.ipynb`
+   - `notebooks/03_modeling/01_model_building_and_training.ipynb`
+
+## Tools and Libraries Used
+
+- **Python 3.8+**
+- **Jupyter Notebook**
+- **pandas**: Data manipulation and analysis
+- **numpy**: Numerical operations
+- **matplotlib, seaborn**: Data visualization
+- **scikit-learn**: Machine learning models and preprocessing
+- **imbalanced-learn**: Handling class imbalance (SMOTE, undersampling)
+- **joblib**: Model saving/loading
+- **tqdm**: Progress bars (optional)
+- **xgboost, lightgbm**: (optional, for advanced modeling)
