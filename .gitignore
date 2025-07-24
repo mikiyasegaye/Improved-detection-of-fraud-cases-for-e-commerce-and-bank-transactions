@@ -213,3 +213,6 @@ data/**/*
 
 models/*
 !models/.gitkeep
+
+reports/*
+!reports/.gitkeep
