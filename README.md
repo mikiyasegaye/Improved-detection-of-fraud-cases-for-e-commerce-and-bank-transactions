@@ -36,8 +36,9 @@ This project focuses on improving fraud detection for e-commerce transactions an
 │   │   └── 01_geolocation_merging_and_feature_engineering.ipynb
 │   ├── 03_modeling/
 │   │   └── 01_model_building_and_training.ipynb
-│   └── 04_evaluation/       # For future evaluation notebooks
-├── src/                     # (Optional) Python scripts for data, features, models, visualization
+│   └── 04_evaluation/
+│       └── 01_model_explainability_shap.ipynb
+├── src/                     # Python scripts for data, features, models, visualization
 ├── models/                  # Trained model files
 │   ├── best_fraud_model.pkl
 │   └── best_credit_model.pkl
@@ -98,6 +99,16 @@ This project focuses on improving fraud detection for e-commerce transactions an
 - Trained and evaluated both models using AUC-PR, F1-Score, and Confusion Matrix metrics.
 - Compared model performance and selected Random Forest as the best model for both datasets, based on higher F1-Score and AUC-PR.
 - Saved the best models for further explainability analysis.
+
+### 4. Model Explainability (`04_evaluation/01_model_explainability_shap.ipynb`)
+
+- Applied SHAP (Shapley Additive exPlanations) to interpret the best-performing Random Forest models for both datasets.
+- Generated summary plots and bar plots showing global feature importance for fraud detection.
+- Identified key drivers of fraud: account age and traffic source for e-commerce, PCA components for credit card transactions.
+- Created comprehensive business insights and recommendations for fraud prevention strategies.
+- Saved feature importance rankings and generated a detailed explainability report.
+
+These steps complete all tasks: Data Analysis and Preprocessing, Model Building and Training, and Model Explainability. The project is now ready for production implementation or further development.
 
 ## How to Run the Project
 
